@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>発音練習アプリ | リハビリテーションナレッジ</title>
+  <meta name="description" content="成人の発音学習と反復練習を支援するArticulationTrainingの紹介ページです。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8faf9;
+      --panel: #ffffff;
+      --panel-soft: #eef7f4;
+      --text: #243044;
+      --muted: #687386;
+      --line: #dde5e3;
+      --accent: #2ca58d;
+      --accent-strong: #147c68;
+      --warning: #fff8e6;
+      --shadow: 0 10px 28px rgba(23, 48, 65, .08);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 18px;
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--accent);
+      font-weight: 900;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .text-button {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+
+    .text-button:hover {
+      background: var(--panel-soft);
+      color: var(--text);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 42px 24px 72px;
+    }
+
+    .hero {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-strong);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 44px);
+      line-height: 1.22;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--accent-strong);
+      font-weight: 750;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .button:hover {
+      background: var(--panel-soft);
+      color: var(--text);
+    }
+
+    .button.primary:hover {
+      background: var(--accent-strong);
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .card, .notice {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 16px;
+      min-height: 150px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .notice {
+      margin-top: 22px;
+      padding: 14px 16px;
+      color: var(--muted);
+      background: var(--warning);
+      box-shadow: none;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 1.25em;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .topbar { padding: 0 12px; }
+      .nav { display: none; }
+      main { padding: 30px 18px 56px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../" aria-label="リハビリテーションナレッジへ戻る">
+      <span class="brand-mark">R</span>
+      <span>リハビリテーションナレッジ</span>
+    </a>
+    <nav class="nav" aria-label="ページメニュー">
+      <a class="text-button" href="../../">ナレッジトップ</a>
+      <a class="text-button" href="privacy/">プライバシーポリシー</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">ArticulationTraining</p>
+      <h1>発音練習アプリ</h1>
+      <p class="lead">
+        成人の発音学習と反復練習を支援する教育アプリです。対象音を選び、発音を録音し、音声認識の結果を学習上の目安として確認しながら練習を進めます。
+      </p>
+      <div class="actions">
+        <a class="button primary" href="privacy/">プライバシーポリシーを見る</a>
+        <a class="button" href="../../">リハビリテーションナレッジへ戻る</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>主な用途</h2>
+      <div class="grid">
+        <article class="card">
+          <h2>発音の反復練習</h2>
+          <p>選んだ音を繰り返し練習し、録音や音声認識結果を見ながら、自分の発音を振り返ります。</p>
+        </article>
+        <article class="card">
+          <h2>練習履歴の確認</h2>
+          <p>ユーザー名、練習日、練習時間、達成状況などを端末内に保存し、継続練習を支援します。</p>
+        </article>
+        <article class="card">
+          <h2>課題提出の補助</h2>
+          <p>ユーザーが選んだ場合に限り、録音音声やセッション情報をメールアプリ経由で提出できます。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>このアプリについて</h2>
+      <ul>
+        <li>アプリ名: ArticulationTraining</li>
+        <li>アプリID: jp.hashida.articulationtraining</li>
+        <li>運営者: naohashida</li>
+        <li>対象: 成人の発音学習と反復練習</li>
+      </ul>
+      <div class="notice">
+        本アプリが表示する判定は音声認識結果に基づく学習上の目安です。医療上の診断や治療を目的とするものではありません。痛み、息苦しさ、むせ、飲み込みにくさなどがある場合は使用を中止し、医師または言語聴覚士などの有資格専門家にご相談ください。
+      </div>
+    </section>
+
+    <section>
+      <h2>個人情報と音声データ</h2>
+      <p>
+        マイクは、ユーザーが録音または音声判定を開始したときだけ使用します。ユーザー名、練習履歴、判定結果および録音音声は、原則として利用中の端末内に保存され、本アプリ独自のサーバーへ自動送信されません。
+      </p>
+      <p>
+        詳細は、アプリ内と同じ内容を掲載している <a class="button" href="privacy/">プライバシーポリシー</a> をご確認ください。
+      </p>
+    </section>
+
+    <footer>
+      ArticulationTraining · リハビリテーションナレッジ
+    </footer>
+  </main>
+</body>
+</html>
